@@ -5,5 +5,6 @@ module.exports = {
         const paths = {
             '/': { page: '/' },
         };
+        return paths;
     },
 };
