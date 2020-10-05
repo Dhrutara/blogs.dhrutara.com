@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import styles from '../styles/Layout.module.css';
+import utilStyles from '../styles/Utils.module.css';
 import Footer from './site-footer';
 import Header from './site-header';
-import styles from '../styles/layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import { lazy, Suspense } from 'react';
 
 const name = 'Ramesh Kanjinghat';
 export const siteTitle = 'DhruTara';
