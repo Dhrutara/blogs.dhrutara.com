@@ -4,7 +4,7 @@ module.exports = withPWA({
     exportPathMap: async function () {
         const paths = {
             '/': { page: '/' },
-            'about': { page: '/about' }
+            '/about': { page: '/about' }
         };
         return paths;
     },
