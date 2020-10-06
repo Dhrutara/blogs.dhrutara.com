@@ -2,89 +2,89 @@
 	"short_name": "DhruTara",
 	"name": "DhruTara",
 	"lang": "en",
-	"start_url": ".",
+	"start_url": "/",
 	"background_color": "#21f3ba",
 	"theme_color": "#000000",
 	"dir": "ltr",
 	"display": "standalone",
 	"orientation": "any",
+	"prefer_related_applications": "false",
 	"icons": [
 		{
-			"src": "icons/maskable-icon-602x602.png",
+			"src": "/icons/maskable-icon-602x602.png",
 			"sizes": "602x602",
 			"type": "image/png",
 			"purpose": "any maskable"
 		},
 		{
-			"src": "icons/android-icon-512x512",
+			"src": "/icons/android-icon-512x512",
 			"type": "image/png",
 			"sizes": "512x512"
 		},
 		{
-			"src": "icons/android-icon-192x192",
+			"src": "/icons/android-icon-192x192",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "icons/apple-icon-180x180",
+			"src": "/icons/apple-icon-180x180",
 			"type": "image/png",
 			"sizes": "180x180"
 		},
 		{
-			"src": "icons/apple-icon-152x152",
+			"src": "/icons/apple-icon-152x152",
 			"type": "image/png",
 			"sizes": "152x152"
 		},
 		{
-			"src": "icons/apple-icon-144x144",
+			"src": "/icons/apple-icon-144x144",
 			"type": "image/png",
 			"sizes": "144x144"
 		},
 		{
-			"src": "icons/apple-icon-120x120",
+			"src": "/icons/apple-icon-120x120",
 			"type": "image/png",
 			"sizes": "120x120"
 		},
 		{
-			"src": "icons/apple-icon-114x114",
+			"src": "/icons/apple-icon-114x114",
 			"type": "image/png",
 			"sizes": "114x114"
 		},
 		{
-			"src": "icons/favicon-96x96",
+			"src": "/icons/favicon-96x96",
 			"type": "image/png",
 			"sizes": "96x96"
 		},
 		{
-			"src": "icons/apple-icon-76x76",
+			"src": "/icons/apple-icon-76x76",
 			"type": "image/png",
 			"sizes": "76x76"
 		},
 		{
-			"src": "icons/apple-icon-72x72",
+			"src": "/icons/apple-icon-72x72",
 			"type": "image/png",
 			"sizes": "72x72"
 		},
 		{
-			"src": "icons/apple-icon-60x60",
+			"src": "/icons/apple-icon-60x60",
 			"type": "image/png",
 			"sizes": "60x60"
 		},
 		{
-			"src": "icons/apple-icon-57x57",
+			"src": "/icons/apple-icon-57x57",
 			"type": "image/png",
 			"sizes": "57x57"
 		},
 		{
-			"src": "icons/favicon-32x32",
+			"src": "/icons/favicon-32x32",
 			"type": "image/png",
 			"sizes": "32x32"
 		},
 		{
-			"src": "icons/favicon-16x16",
+			"src": "/icons/favicon-16x16",
 			"type": "image/png",
 			"sizes": "16x16"
 		}
-	],
-	"prefer_related_applications": "DhruTara"
+	]
 }

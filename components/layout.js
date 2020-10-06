@@ -13,9 +13,9 @@ export default function Layout({ children, home, about }) {
         <Head>
             <link rel='icon' href="/favicon.ico" />
             <meta name="description" content="Trying to share knowledge on dotnet core, reacts js, Azure, C#, ASP.Net" />
-            <meta charset='utf-8' />
-            <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-            <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+            <meta charSet='utf-8' />
+            <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+            <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5' />
             <meta name="og:title" content={siteTitle} />
             <link rel='manifest' href='/manifest.json' />
 
@@ -27,13 +27,6 @@ export default function Layout({ children, home, about }) {
         </Head>
         <Header />
         <header className={styles.header}>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
             {about ? (
                 <>
                     <img

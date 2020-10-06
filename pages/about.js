@@ -8,14 +8,14 @@ export default function About() {
             <Head>
                 <title>{siteTitle}</title>
             </Head>
-            <section className={utilStyles.headingSM}>
+            <section className={utilStyles.headingLg}>
                 I am a Software Engineer by profession. Experienced in designing and developing Web applications, Saas and cloud.
                 I live in Ohio, USA with my wife and 2 adorable kids.
             </section>
-            <section className={utilStyles.headingSm}>
-                IIIII can write & speak in Malayalam, English, Hindi, Telugu and C#, Javascript, jsx, sql, html. I use Azure & Azure Devops when I have to take to clouds. I am agile when it comes to safeguarding information; distributed, centralized, clustered and tabularized.
+            <section className={utilStyles.headingMd}>
+                I can write & speak in Malayalam, English, Hindi, Telugu and C#, Javascript, jsx, sql, html. I use Azure & Azure Devops when I have to take to clouds. I am agile when it comes to safeguarding information; distributed, centralized, clustered and tabularized.
             </section>
-            <section className={utilStyles.headingSm, utilStyles.lightText}>
+            <section className={utilStyles.headingSm}>
                 Dotnet (Framework & Core), ASP.Net (web forms, MVC & core), Git, npm, Software architecture & design, vendor management and leading teams.
             </section>
         </Layout>
