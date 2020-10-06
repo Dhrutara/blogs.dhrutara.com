@@ -1,11 +1,15 @@
+const withPWA = require('next-pwa');
 
-module.exports = {
-    trailingSlash: true,
+module.exports = withPWA({
     exportPathMap: async function () {
         const paths = {
             '/': { page: '/' },
-            '/about':{page:'/about'}
+            '/about': { page: '/about' }
         };
         return paths;
     },
-};
+    trailingSlash: true,
+    pwa: {
+        dest: 'public'
+    }
+});
