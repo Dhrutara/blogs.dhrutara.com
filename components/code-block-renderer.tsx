@@ -4,12 +4,12 @@ import { coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
 const getLanguageAndHighlights = (value) => {
 
     //Sample javascript{1,3,6}
-    var pattern = /\{([^}]+)\}/g;
+    const pattern = /\{([^}]+)\}/g;
     let language = '';
     let lineHighlights = [];
     if (value && typeof value === 'string') {
         language = value.replace(pattern, '');
-        const highlights = value.match(pattern, '');
+        const highlights = value.match(pattern);
         if (highlights && typeof highlights === 'object' && highlights.length === 1) {
             lineHighlights = highlights[0].replace('{', '').replace('}', '').split(",").map(Number);
         }
@@ -24,7 +24,7 @@ export default function CodeBlockRenderer(props) {
     return (
         <SyntaxHighlighter language={language} style={coy} showLineNumbers={true} wrapLines={true}
             lineProps={lineNumber => {
-                let style = { };
+                let style = { backgroundColor: "" };
                 if (lineHighlights && lineHighlights.includes(lineNumber)) {
                     style.backgroundColor = '#79cada';
                 }

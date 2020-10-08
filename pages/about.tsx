@@ -4,7 +4,7 @@ import utilStyles from '../styles/Utils.module.css'
 
 export default function About() {
     return (
-        <Layout about>
+        <Layout home={false} about={true}>
             <Head>
                 <title>{siteTitle}</title>
             </Head>
