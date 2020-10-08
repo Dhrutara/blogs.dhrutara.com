@@ -1,0 +1,9 @@
+
+
+export default function ImageRenderer(props) {
+    debugger;
+    const value = props.value;
+    return (
+        <figure class="wp-block-image size-large is-resized"><img loading="lazy" data-attachment-id="142" data-permalink="https://dhrutara.net/builtin_vs_dotnetwarp/" data-orig-file="https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg" data-orig-size="1248,533" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="builtin_vs_dotnetwarp" data-image-description="" data-medium-file="https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=300" data-large-file="https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=750" src="https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=1024" alt="Dotnet Core built in trimmer vs dotnet-warp" class="wp-image-142" width="707" height="301" srcset="https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=1024 1024w, https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=705 705w, https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=150 150w, https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=300 300w, https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg?w=768 768w, https://dhrutara.files.wordpress.com/2020/05/builtin_vs_dotnetwarp.jpg 1248w" sizes="(max-width: 707px) 100vw, 707px"/><figcaption>Dotnet Core built in trimmer vs dotnet-warp</figcaption></figure>
+    );
+}
