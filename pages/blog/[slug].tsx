@@ -27,8 +27,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps = async (params) => {
-    const blog = await Service.getBlog(params.params.slug);
+export const getStaticProps: GetStaticProps = async (req) => {
+    const blog = await Service.getBlog(req.params.slug);
     // Pass post data to the page via props
     const blogResponse = JSON.parse(JSON.stringify(blog));
     return {
