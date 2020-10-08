@@ -6,8 +6,7 @@ export default function ImageRenderer(props) {
     return (
         <figure className="wp-block-image size-large is-resized">
             <img
-                data-loading="lazy" data-attachment-id="142"
-                data-permalink="https://dhrutara.net/builtin_vs_dotnetwarp/"
+                data-loading="lazy" 
                 data-orig-file={imageSrc}
                 data-orig-size="1248,533"
                 data-comments-opened="1"
@@ -18,7 +17,6 @@ export default function ImageRenderer(props) {
                 data-large-file={imageSrc + "?w=750"}
                 src={imageSrc + "?w=10241"}
                 alt={altText}
-                className="wp-image-142" width="707" height="301"
                 srcSet={imageSrc + "?w=1024 1024w, " + imageSrc + "?w=705 705w, " + imageSrc + "?w=150 150w, " + imageSrc + "?w=300 300w, " + imageSrc + "?w=768 768w, " + imageSrc + "?1248w"}
                 sizes="(max-width: 707px) 100vw, 707px" />
             <figcaption style={{ textAlign: "center" }}>{altText}</figcaption>
