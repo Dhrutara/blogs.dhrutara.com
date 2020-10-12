@@ -1,10 +1,8 @@
-import Blog from './Blog';
-
-export default class ServiceResponse {
-    blog: Blog;
+export default class ServiceResponse<T> {
+    data: T;
     error: string;
-    constructor(blog?: Blog, error?: string) {
-        this.blog = blog;
+    constructor(data?: T, error?: string) {
+        this.data = data;
         this.error = error;
     }
 

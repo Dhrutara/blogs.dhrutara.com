@@ -1,4 +1,5 @@
 export default class BlogMetadata {
+    slug: string;
     title: string;
     author: string;
     description: string;
@@ -6,7 +7,8 @@ export default class BlogMetadata {
     publishedDate: string;
     lastModifiedDate: string;
 
-    constructor(title?: string, author?: string, description?: string, keywords?: string, publishedDate?: string, lastModifiedDate?: string) {
+    constructor(slug?: string, title?: string, author?: string, description?: string, keywords?: string, publishedDate?: string, lastModifiedDate?: string) {
+        this.slug = slug;
         this.title = title || '';
         this.author = author || '';
         this.description = description || '';
@@ -14,14 +16,6 @@ export default class BlogMetadata {
         this.publishedDate = publishedDate || '';
         this.lastModifiedDate = lastModifiedDate || '';
     }
-
-    /* public get title(): string { return this.title }
-    public get author(): string { return this.author };
-    public get description(): string { return this.description }
-    public get keywords(): string { return this.keywords }
-    public get publishedDate(): string { return this.publishedDate }
-    public get lastModifiedDate(): string { return this.lastModifiedDate }
-     */
     public toString(): string {
         return JSON.stringify(this);
     }
