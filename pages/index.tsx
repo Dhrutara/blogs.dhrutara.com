@@ -27,11 +27,6 @@ export default function Home({ blogGists }: { blogGists: ServiceResponse<BlogMet
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ['/'];
-  return { paths, fallback: false }
-}
-
 export const getStaticProps: GetStaticProps = async () => {
   const gists = await Service.getLatestBlogs();
   const blogGists = JSON.parse(JSON.stringify(gists));
