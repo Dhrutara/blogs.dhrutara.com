@@ -1,18 +1,16 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 import styles from '../styles/Layout.module.css';
 import utilStyles from '../styles/Utils.module.css';
-import Footer from './site-footer';
-import Header from './site-header';
+import Navigation from './navigation';
+import Footer from './footer';
 
-const name = 'Ramesh Kanjinghat';
 export const siteTitle = 'DhruTara';
 
 interface Props {
     children: any;
-    home: any;
-    about: any
+    headerImageSrc: string;
+    headerText: string
 }
 
 export default class Layout extends React.Component<Props> {
@@ -32,39 +30,30 @@ export default class Layout extends React.Component<Props> {
                 <meta name='theme-color' content='#317EFB' />
                 <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
             </Head>
-            <Header />
-            <div className={styles.container}>
-                <header className={styles.header}>
-                    {this.props.about ? (
-                        <>
-                            <img
-                                src="/images/profile_792_820.jpg"
-                                className={`${styles.headerImageAbout} ${utilStyles.borderCircle}`}
-                                alt={name}
-                            />
-                            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-                        </>
-                    ) : this.props.home ? (
-                        <>
-                            <Link href="/">
-                                <a>
-                                    <img
-                                        src="/images/profile_400_400.jpg"
-                                        className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                                        alt={name}
-                                    />
-                                </a>
-                            </Link>
-                            <h2 className={utilStyles.headingSm}>
-                                <Link href="/">
-                                    <a className={utilStyles.colorInherit}>{name}</a>
-                                </Link>
-                            </h2>
-                        </>
-                    ) : <></>}
-                </header>
+            <Navigation />
+            <header className={styles.header}>
+                <>
+                    <figure className="wp-block-image size-large is-resized">
+                        <img className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                            data-loading="lazy"
+                            data-orig-file={this.props.headerImageSrc}
+                            data-orig-size="1248,533"
+                            data-comments-opened="1"
+                            data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}"
+                            data-image-title="builtin_vs_dotnetwarp"
+                            data-image-description=""
+                            data-medium-file={this.props.headerImageSrc + "?w=300"}
+                            data-large-file={this.props.headerImageSrc + "?w=750"}
+                            src={this.props.headerImageSrc + "?w=10241"}
+                            alt={this.props.headerText}
+                            srcSet={this.props.headerImageSrc + "?w=1024 1024w, " + this.props.headerImageSrc + "?w=705 705w, " + this.props.headerImageSrc + "?w=150 150w, " + this.props.headerImageSrc + "?w=300 300w, " + this.props.headerImageSrc + "?w=768 768w, " + this.props.headerImageSrc + "?1248w"}
+                            sizes="(max-width: 707px) 100vw, 707px" />
+                        <figcaption className={utilStyles.colorInherit}>{this.props.headerText}</figcaption>
+                    </figure>
+                </>
+            </header>
 
-                <br></br>
+            <div className={styles.container}>
                 <main>{this.props.children}</main>
                 <br></br>
                 <Footer />

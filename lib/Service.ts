@@ -6,7 +6,7 @@ import ServiceResponse from './ServiceResponse';
 export default class {
 
     public static async getBlog(blogSlug): Promise<ServiceResponse<Blog>> {
-        const url = `https://dhrutaramd.blob.core.windows.net/content/${blogSlug}`;
+        const url = `https://dhrutarastorage.blob.core.windows.net/blogcontent/${blogSlug}`;
         try {
             const result = await axios.get(url, {});
             let metadata = this.getBlogMetadataFromHeaders(result.headers) || this.getMetaDataFromContent(result.data);
@@ -23,6 +23,7 @@ export default class {
         response.data = [
             new BlogMetadata('warp-it', 'Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline','Ramsh Kanjinghat', 'How to use dotnet-warp to further trim Dot.net Core Self-contained, Single File deployments.', 'Warp , DotNet Warp, Azure Devops, CI/CD pipeline, yaml, yml','09/20/2020','09/20/2020'),
             new BlogMetadata('react-app-to-asp-net-react-app', 'How to convert a React Web app to .Net core react web app','Ramsh Kanjinghat', 'I try to explain how I have moved a serverless a React Web app to ASP.Net core backed react web app.', 'React web app, ASP.Net Core React App, React to .Net Core React APP','09/10/2020','09/10/2020'),
+            new BlogMetadata('react-app-to-asp-net-react-app', 'How to convert a React Web app to .Net core react web app','Ramsh Kanjinghat', 'I try to explain how I have moved a serverless a React Web app to ASP.Net core backed react web app.', 'React web app, ASP.Net Core React App, React to .Net Core React APP','09/10/2020','09/10/2020')
         ];
 
         return response;

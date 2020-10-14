@@ -12,7 +12,7 @@ import BlogsList from '../../utilities/blogs-list';
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
     return (
-        <Layout home about>
+        <Layout headerImageSrc="/images/my_Avatar.jpg" headerText="DhruTara">
             <Head>
                 <title>How to convert a React Web app to .Net core react web app</title>
             </Head>
@@ -25,11 +25,6 @@ export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = BlogsList.BlogsList.map(slug => `/blogs/${slug}`)
-    debugger;
-    console.clear();
-    console.log('======================================');
-    console.log(paths);
-    console.log('======================================');
     return { paths, fallback: false }
 
 }
