@@ -1,5 +1,7 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { Grid } from '@material-ui/core';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import React from 'react';
 import BlogGist from '../components/blog-gist';
 import Layout, { siteTitle } from '../components/layout';
 import BlogMetadata from '../lib/BlogMetadata';
@@ -8,18 +10,19 @@ import ServiceResponse from '../lib/ServiceResponse';
 
 export default function Home({ blogGists }: { blogGists: ServiceResponse<BlogMetadata[]> }) {
   return (
-    <Layout home={true} about={false}>
+    <Layout headerImageSrc="/images/my_Avatar.jpg" headerText="DhruTara">
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <h3>Latest blogs</h3>
       <div>
         {blogGists && blogGists.data ?
-          (<ul>
+          (<Grid container spacing={3}>
             {blogGists.data.map((gist, index) => (
-              <BlogGist data={gist} key={index} />
+              <Grid item key={index} style={{"width":"100%"}}>
+                <BlogGist data={gist} />
+              </Grid>
             ))}
-          </ul>
+          </Grid>
           ) : (<></>)
         }
       </div>

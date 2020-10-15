@@ -1,25 +1,23 @@
 .container {
-    max-width: 56rem;
-    padding: 0 1rem;
-    margin: 5rem auto 6rem;
-  }
-  
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .headerImageAbout {
-    width: 16rem;
-  }
-  
-  .headerImage {
-    width: 8rem;
-  }
-  
-  .backToHome {
-    margin: 3rem 0 0;
-    color:#000000;
-    font-weight:bold ;
-  }
+  max-width: 56rem;
+  padding: 8rem 1rem;
+  margin: auto auto 6rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: black;
+  color: #6bd2b3;
+  font-size: larger;
+  height: 14rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.headerImage {
+  width: 16rem;
+  margin-top: 4rem;
+}

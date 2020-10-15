@@ -1,8 +1,8 @@
 import Grid from '@material-ui/core/Grid';
-import ActiveLink from '../components/active-link';
-import styles from '../styles/Header.module.css';
+import ActiveLink from './active-link';
+import styles from '../styles/Navigation.module.css';
 
-export default function Header() {
+export default function Navigation() {
 
     return (
         <Grid container spacing={0} className={styles.root}>
