@@ -33,7 +33,7 @@ export default class Layout extends React.Component<Props> {
             <Navigation />
             <header className={styles.header}>
                 <>
-                    <figure className="wp-block-image size-large is-resized">
+                    <figure className={styles.headerFigure}>
                         <img className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                             data-loading="lazy"
                             data-orig-file={this.props.headerImageSrc}

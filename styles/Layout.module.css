@@ -1,23 +1,27 @@
 .container {
   max-width: 56rem;
-  padding: 8rem 1rem;
-  margin: auto auto 6rem;
+  padding: 1rem 1rem;
+  margin: auto auto auto;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
-  background-color: black;
+  margin-bottom: 1rem;
+  background-color: transparent;
   color: #6bd2b3;
-  font-size: larger;
-  height: 8rem;
+  font-size: medium;
+  /*height: 8rem;*/
   text-align: center;
   font-weight: 500;
 }
 
 .headerImage {
-  width: 8rem;
+  width: 10rem;
   margin-top: 0rem;
+}
+
+.headerFigure{
+  display: contents;
 }

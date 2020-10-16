@@ -12,7 +12,7 @@ import BlogsList from '../../utilities/blogs-list';
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
     return (
-        <Layout headerImageSrc="/images/read_398_398.jpg" headerText="DhruTara">
+        <Layout headerImageSrc="/images/read_398_398.jpg" headerText="Port a React Web app to .Net core backed react web app">
             <Head>
                 <title>How to convert a React Web app to .Net core react web app</title>
             </Head>
