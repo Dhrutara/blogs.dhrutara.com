@@ -12,7 +12,7 @@ import BlogsList from '../../utilities/blogs-list';
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
     return (
-        <Layout headerImageSrc="/images/my_Avatar.jpg" headerText="DhruTara">
+        <Layout headerImageSrc="/images/read_398_398.jpg" headerText="Port a React Web app to .Net core backed react web app">
             <Head>
                 <title>How to convert a React Web app to .Net core react web app</title>
             </Head>
@@ -31,7 +31,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (req) => {
     const blog = await Service.getBlog(req.params.slug);
-    // Pass post data to the page via props
     const blogResponse = JSON.parse(JSON.stringify(blog));
     return {
         props: {

@@ -28,12 +28,11 @@ export default class Layout extends React.Component<Props> {
                 <link href='/icons/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' />
                 <link rel='apple-touch-icon' href='icons/apple-icon.png'></link>
                 <meta name='theme-color' content='#317EFB' />
-                <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
             </Head>
             <Navigation />
             <header className={styles.header}>
                 <>
-                    <figure className="wp-block-image size-large is-resized">
+                    <figure className={styles.headerFigure}>
                         <img className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                             data-loading="lazy"
                             data-orig-file={this.props.headerImageSrc}

@@ -1,0 +1,9 @@
+{
+    "platformErrorOverrides": [
+        {
+            "errorType": "NotFound",
+            "serve": "/recommendations",
+            "statusCode": 200
+        }
+    ]
+}
