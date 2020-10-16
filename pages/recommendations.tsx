@@ -1,28 +1,23 @@
 import { Grid } from '@material-ui/core';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useSWR from 'swr';
+import BlogGist from '../components/blog-gist';
 import Layout from '../components/layout';
 import BlogMetadata from '../lib/BlogMetadata';
 import Service from '../lib/Service';
-import BlogGist from '../components/blog-gist';
+import ServiceResponse from '../lib/ServiceResponse';
 import utilStyles from '../styles/Utils.module.css';
 
-export default () => {
-    const [blogGists, setBlogGists] = useState<BlogMetadata[]>(null);
-    useEffect(() => {
-        const fetchBlogGists = async () => {
-            try {
-                const response = await Service.getRecommendedBlogs("warp-it");
-                if (response && response.data) {
-                    setBlogGists(response.data);
-                }
-            } catch {
-                //Just do nothing
-            }
-        };
-        fetchBlogGists();
-    }, [blogGists]);
 
+export default function Recommendations({ blogGists }: { blogGists: ServiceResponse<BlogMetadata[]> }) {
+    const { data, error } = useSWR<ServiceResponse<BlogMetadata[]>>("fether", Service.getRecommendedBlogs);
+    
+    if (data && data.data) {
+        blogGists = data;
+    }
+    
     return (
         <Layout headerImageSrc="/images/emabarassed_398_398.jpg" headerText="DhruTara">
             <Head>
@@ -31,7 +26,7 @@ export default () => {
             <div>
                 {blogGists ?
                     (<Grid container spacing={3}>
-                        {blogGists.map((gist, index) => (
+                        {blogGists.data.map((gist, index) => (
                             <Grid item key={index} style={{ "width": "100%" }}>
                                 <BlogGist data={gist} />
                             </Grid>
@@ -43,3 +38,13 @@ export default () => {
         </Layout>
     );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+    const gists = await Service.getLatestBlogs();
+    const blogGists = JSON.parse(JSON.stringify(gists));
+    return {
+        props: {
+            blogGists
+        }
+    }
+} 
