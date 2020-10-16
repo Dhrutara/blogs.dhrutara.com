@@ -7,7 +7,7 @@ import Service from '../lib/Service';
 import BlogGist from '../components/blog-gist';
 import utilStyles from '../styles/Utils.module.css';
 
-export default function Error404() {
+export default () => {
     const [blogGists, setBlogGists] = useState<BlogMetadata[]>(null);
     useEffect(() => {
         const fetchBlogGists = async () => {

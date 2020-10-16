@@ -20,7 +20,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "utilities/blogs-list.ts"
+    "**/*.tsx", "utilities/blogs-list.ts", "pages/_error.tsx"
   ],
   "exclude": [
     "node_modules"
