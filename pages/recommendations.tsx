@@ -19,7 +19,7 @@ export default function Recommendations({ blogGists }: { blogGists: ServiceRespo
     }
     
     return (
-        <Layout headerImageSrc="/images/emabarassed_398_398.jpg" headerText="I am emabrassed :) Unfortunately I couldn't get what you have asked for. May I recommend some blogs you might be interested in?">
+        <Layout headerImageSrc="/images/emabarassed_398_398.jpg" headerText="Unfortunately I couldn't get what you have asked for. May I recommend some blogs you might be interested in?">
             <Head>
                 <title>DhruTara</title>
             </Head>
