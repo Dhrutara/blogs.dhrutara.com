@@ -10,7 +10,7 @@ import ServiceResponse from '../lib/ServiceResponse';
 
 export default function Home({ blogGists }: { blogGists: ServiceResponse<BlogMetadata[]> }) {
   return (
-    <Layout headerImageSrc="/images/my_Avatar.jpg" headerText="DhruTara">
+    <Layout headerImageSrc="/images/hey_398_398.jpg" headerText="DhruTara">
       <Head>
         <title>{siteTitle}</title>
       </Head>

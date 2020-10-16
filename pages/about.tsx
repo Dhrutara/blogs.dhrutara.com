@@ -3,13 +3,13 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/Utils.module.css'
 
 export default function About() {
-    
+
     return (
         <Layout headerImageSrc="/images/profile_792_820.jpg" headerText="Ramesh Kanjinghat">
             <Head>
                 <title>{siteTitle}</title>
             </Head>
-            
+
             <section className={utilStyles.headingLg}>
                 I am a Software Engineer by profession. Experienced in designing and developing Web applications, Saas and cloud.
                 I live in Ohio, USA with my wife and 2 adorable kids.

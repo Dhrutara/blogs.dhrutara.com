@@ -55,3 +55,7 @@
   .lightText {
     color: #999;
   }
+
+  .errorMessage{
+    color: tomato;
+  }

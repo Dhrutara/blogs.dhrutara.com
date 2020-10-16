@@ -1,10 +1,16 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 function ActiveLink({ children, href }) {
   const router = useRouter()
   const style = {
     marginRight: 10,
-    display: router.pathname === href || (router.pathname.startsWith('/blogs/') && href !== "/") ? 'none' : 'flex'
+    display: router.pathname === '/'
+      ? href === '/about'
+        ? 'flex'
+        : 'none'
+      : href === '/'
+        ? 'flex'
+        : 'none'
   }
 
   const handleClick = (e) => {
