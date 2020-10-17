@@ -2,7 +2,7 @@
     "platformErrorOverrides": [
         {
             "errorType": "NotFound",
-            "serve": "/recommendations",
+            "serve": "/404",
             "statusCode": 200
         }
     ]
