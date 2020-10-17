@@ -19,11 +19,12 @@ export default class {
 
     public static async getLatestBlogs(): Promise<ServiceResponse<BlogMetadata[]>> {
         let response = new ServiceResponse<BlogMetadata[]>();
-        response.data = [
-            new BlogMetadata('warp-it', 'Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline', 'Ramesh Kanjinghat', 'How to use dotnet-warp to further trim Dot.net Core Self-contained, Single File deployments.', 'Warp , DotNet Warp, Azure Devops, CI/CD pipeline, yaml, yml', '09/20/2020', '09/20/2020'),
-            new BlogMetadata('dotnet-core-deployment-models', 'Dotnet Core 3.0 deployment models', 'Ramesh Kanjinghat', 'Dotnet core 3.0 (.net core 3.0.) deployment models let you deploy dotnet core assemblies either as self-contained or framework dependent with different file options like, Produce single file, ReadyToRun compilation and Trim unused assemblies.', 'Deployment models, dotnet core, .net core, core 3.0, core3.0, single file deplpoyment, self-contained, framework dependent, Produce single file, ReadyToRun compilation, Trim unused assemblies', '08/25/2020', '08/25/2020'),
-            new BlogMetadata('react-app-to-asp-net-react-app', 'Port an existing React Web app to .Net core react web app', 'Ramesh Kanjinghat', 'How to port an existing serverless React Web app to react web app with ASP.Net core backend', 'reactjs, asp.net core, react web app to asp.net core web app', '10/20/20', '10/20/20')
-        ];
+        try {
+            const result = await axios.get('/api/latestblogs');
+            response.data = result.data;
+        } catch (err) {
+            response.error = err;
+        }
 
         return response;
     }
