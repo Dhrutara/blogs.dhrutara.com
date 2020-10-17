@@ -13,7 +13,7 @@ import BlogMeta from '../../components/blog-meta';
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
     return (
-        <Layout headerImageSrc="/images/read_398_398.jpg" headerText="Port a React Web app to .Net core backed react web app">
+        <Layout headerImageSrc="/images/read_398_398.jpg" headerText={blogResponse.data.metadata.title}>
             <BlogMeta
                 author={blogResponse.data.metadata.author}
                 description={blogResponse.data.metadata.description}
