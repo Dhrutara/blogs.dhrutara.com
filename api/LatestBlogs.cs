@@ -4,23 +4,25 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-
-
 using System.Collections.Generic;
 using Dhrutara.Blogs.Api.Models;
 
 namespace Dhrutara.Blogs.Api
 {
-    public static class LatestBlogs
+    public class LatestBlogs
     {
+        private readonly IService _service;
+        public LatestBlogs(IService service)
+        {
+            this._service = service;
+        }
         [FunctionName("LatestBlogs")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "latestblogs")] HttpRequest req,
             ILogger log)
         {
-            Service service = new Service();
 
-            ServiceResponse<List<BlogMetaData>> response = await service.GetLatestBlogGistsAsync();
+            ServiceResponse<List<BlogMetaData>> response = await this._service.GetLatestBlogGistsAsync();
             if(response.Error == null && response.Data != null)
             {
                 return new OkObjectResult(response.Data);

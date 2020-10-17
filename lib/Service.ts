@@ -6,7 +6,7 @@ import ServiceResponse from './ServiceResponse';
 export default class {
 
     public static async getBlog(blogSlug: string | string[]): Promise<ServiceResponse<Blog>> {
-        const url = `https://blogsdhrutara.blob.core.windows.net/blog-content/${blogSlug}`;
+        const url = `https://blogsdhrutara.blob.core.windows.net/blog-content/${encodeURI(blogSlug)}`;
         try {
             const result = await axios.get(url, {});
             let metadata = this.getBlogMetadataFromHeaders(result.headers) || this.getMetaDataFromContent(result.data);
@@ -31,7 +31,7 @@ export default class {
 
     public static async getRecommendedBlogs(requestedSlug: string): Promise<ServiceResponse<BlogMetadata[]>> {
         try {
-            const result = await axios.get(`/api/recommendedblogs/${requestedSlug}`);
+            const result = await axios.get(`/api/recommendedblogs/${encodeURI(requestedSlug)}`);
             return new ServiceResponse<BlogMetadata[]>(result.data, null);
         } catch (err) {
             return new ServiceResponse<BlogMetadata[]>(null, err);
