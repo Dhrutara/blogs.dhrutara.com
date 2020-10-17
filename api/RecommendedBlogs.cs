@@ -28,7 +28,7 @@ namespace Dhrutara.Blogs.Api
             logDetails.Append($"Requested Slug Not found. Slug: {userRequestedSlug}{Environment.NewLine}");
 
             string[] keyWords = string.IsNullOrWhiteSpace(requestedSlug) ? new string[] { } : requestedSlug.Split('-');
-            ServiceResponse<IEnumerable<BlogMetaData>> response;
+            ServiceResponse<List<BlogMetaData>> response;
             if (keyWords.Any())
             {
                 response = await service.GetRecommendedGistsAsync(keyWords);
