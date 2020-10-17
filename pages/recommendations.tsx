@@ -11,7 +11,7 @@ import Service from '../lib/Service';
 import ServiceResponse from '../lib/ServiceResponse';
 import utilStyles from '../styles/Utils.module.css';
 
-export default function Recommendations({ blogGists }: { blogGists: ServiceResponse<BlogMetadata[]> }) {
+export default function Recommendations({ blogGists }: { blogGists?: ServiceResponse<BlogMetadata[]> }) {
 
     const router = useRouter();
     const code = router.asPath.split(/\?/)[1];
@@ -28,7 +28,7 @@ export default function Recommendations({ blogGists }: { blogGists: ServiceRespo
                 <title>DhruTara</title>
             </Head>
             <div>
-                {blogGists ?
+                {blogGists && blogGists.data && Array.isArray(blogGists.data) ?
                     (<Grid container spacing={3}>
                         {blogGists.data.map((gist, index) => (
                             <Grid item key={index} style={{ "width": "100%" }}>
@@ -36,19 +36,9 @@ export default function Recommendations({ blogGists }: { blogGists: ServiceRespo
                             </Grid>
                         ))}
                     </Grid>
-                    ) : (<div className={`${utilStyles.headingLg} ${utilStyles.errorMessage}`}><h4>I am really sorry for not able to serve you this time :). Please give give it a shot later.</h4></div>)
+                    ) : (<div className={`${utilStyles.headingLg} ${utilStyles.errorMessage}`}><h4>I am really sorry for not able to serve you this time :). Please give it a shot later.</h4></div>)
                 }
             </div>
         </Layout>
     );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-    const gists = await Service.getLatestBlogs();
-    const blogGists = JSON.parse(JSON.stringify(gists));
-    return {
-        props: {
-            blogGists
-        }
-    }
-} 

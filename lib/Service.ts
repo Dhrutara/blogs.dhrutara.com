@@ -18,10 +18,9 @@ export default class {
     }
 
     public static async getLatestBlogs(): Promise<ServiceResponse<BlogMetadata[]>> {
-        debugger;
         let response = new ServiceResponse<BlogMetadata[]>();
         try {
-            const result = await axios.get('http://localhost:7071/api/latestblogs');
+            const result = await axios.get('/api/latestblogs');
             response.data = result.data;
         } catch (err) {
             response.error = err;
