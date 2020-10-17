@@ -6,7 +6,7 @@ import ServiceResponse from './ServiceResponse';
 export default class {
 
     public static async getBlog(blogSlug: string | string[]): Promise<ServiceResponse<Blog>> {
-        const url = `https://blogsdhrutara.blob.core.windows.net/blog-content/${encodeURI(blogSlug)}`;
+        const url = `https://blogsdhrutara.blob.core.windows.net/blog-content/${encodeURI(blogSlug.toString())}`;
         try {
             const result = await axios.get(url, {});
             let metadata = this.getBlogMetadataFromHeaders(result.headers) || this.getMetaDataFromContent(result.data);
