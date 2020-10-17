@@ -8,14 +8,20 @@ import Blog from '../../lib/Blog';
 import Service from '../../lib/Service';
 import ServiceResponse from '../../lib/ServiceResponse';
 import BlogsList from '../../utilities/blogs-list';
+import BlogMeta from '../../components/blog-meta';
 
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
     return (
         <Layout headerImageSrc="/images/read_398_398.jpg" headerText="Port a React Web app to .Net core backed react web app">
-            <Head>
-                <title>How to convert a React Web app to .Net core react web app</title>
-            </Head>
+            <BlogMeta
+                author={blogResponse.data.metadata.author}
+                description={blogResponse.data.metadata.description}
+                keywords={blogResponse.data.metadata.keywords}
+                lastModifiedDate={blogResponse.data.metadata.lastModifiedDate}
+                publishedDate={blogResponse.data.metadata.publishedDate}
+                slug={blogResponse.data.metadata.slug}
+                title={blogResponse.data.metadata.title} />
             <div>
                 <ReactMarkdown source={blogResponse.data.content} escapeHtml={false} renderers={{ "code": CodeBlockRenderer, "image": ImageRenderer }} />
             </div>

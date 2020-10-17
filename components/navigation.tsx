@@ -1,8 +1,7 @@
 import Grid from '@material-ui/core/Grid';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/Navigation.module.css';
-import ActiveLink from './active-link';
-import Link from 'next/link';
 
 export default function Navigation() {
 
