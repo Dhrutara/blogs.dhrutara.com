@@ -5,9 +5,10 @@ function Error() {
     const router = useRouter();
     // Make sure we're in the browser
     if (typeof window !== 'undefined') {
-        router.push('/recommendations')
+        const userRequest = router.asPath.split("/").join('-');
+        const baseSixty4 = Buffer.from(userRequest).toString('base64');
+        router.push(`/recommendations?code=${baseSixty4}`);
     }
-
     return (
         <div></div>
     );

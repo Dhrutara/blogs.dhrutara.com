@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 import useSWR from 'swr';
 import BlogGist from '../components/blog-gist';
@@ -10,14 +11,17 @@ import Service from '../lib/Service';
 import ServiceResponse from '../lib/ServiceResponse';
 import utilStyles from '../styles/Utils.module.css';
 
-
 export default function Recommendations({ blogGists }: { blogGists: ServiceResponse<BlogMetadata[]> }) {
-    const { data, error } = useSWR<ServiceResponse<BlogMetadata[]>>("fether", Service.getRecommendedBlogs);
-    
+
+    const router = useRouter();
+    const code = router.asPath.split(/\?/)[1];
+    const userRequest = code ? Buffer.from(code.toString()).toString('base64') : '';
+    const { data, error } = useSWR<ServiceResponse<BlogMetadata[]>>(userRequest, Service.getRecommendedBlogs);
+
     if (data && data.data) {
         blogGists = data;
     }
-    
+
     return (
         <Layout headerImageSrc="/images/emabarassed_398_398.jpg" headerText="Unfortunately I couldn't get what you have asked for. May I recommend some blogs you might be interested in?">
             <Head>
