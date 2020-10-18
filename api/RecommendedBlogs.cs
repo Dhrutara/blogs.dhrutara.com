@@ -9,39 +9,37 @@ using System.Linq;
 using System.Collections.Generic;
 using Dhrutara.Blogs.Api.Models;
 using System.Text;
+using System.Web;
 
 namespace Dhrutara.Blogs.Api
 {
-    public static class RecommendedBlogs
+    public class RecommendedBlogs
     {
+        private readonly IService _service;
+        public RecommendedBlogs(IService service)
+        {
+            this._service = service;
+        }
         [FunctionName("RecommendedBlogs")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "recommendedblogs/{requestedSlug?}")] HttpRequest req,
             ILogger log,
             string requestedSlug = null)
         {
-            Service service = new Service();
             StringBuilder logDetails = new StringBuilder();
 
-            string userRequestedSlug = string.IsNullOrWhiteSpace(requestedSlug) ? string.Empty : requestedSlug.Trim();
-
-            logDetails.Append($"Requested Slug Not found. Slug: {userRequestedSlug}{Environment.NewLine}");
-
-            string[] keyWords = string.IsNullOrWhiteSpace(requestedSlug) ? new string[] { } : requestedSlug.Split('-');
-            ServiceResponse<List<BlogMetaData>> response;
-            if (keyWords.Any())
+            string decodedSearchText = HttpUtility.UrlDecode(requestedSlug);
+            
+            ServiceResponse<List<BlogMetaData>> response = await this._service.GetRecommendedGistsAsync(decodedSearchText);
+            if (response?.Error == null && response?.Data?.Any() == true)
             {
-                response = await service.GetRecommendedGistsAsync(keyWords);
-                if (response?.Error == null && response?.Data?.Any() == true)
-                {
-                    logDetails.Append($"Recommended blogs: {blogMetadataToString(response.Data)}{Environment.NewLine}");
-                    log.LogInformation(logDetails.ToString());
-                    return new OkObjectResult(response.Data);
-                }
+                logDetails.Append($"Recommended blogs: {blogMetadataToString(response.Data)}{Environment.NewLine}");
+                log.LogInformation(logDetails.ToString());
+                return new OkObjectResult(response.Data);
             }
 
             logDetails.Append($"No recommended blogs.{Environment.NewLine}");
-            response = await service.GetLatestBlogGistsAsync();
+            response = await this._service.GetLatestBlogGistsAsync();
             if (response?.Error == null && response?.Data?.Any() == true)
             {
                 logDetails.Append($"Responding with latest blogs.");
