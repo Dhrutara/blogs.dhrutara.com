@@ -5,5 +5,5 @@
 Dhrutara Blogs
 
 
-## Learn More
+## Learn More about
 
