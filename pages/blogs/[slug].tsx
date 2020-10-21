@@ -8,13 +8,13 @@ import Blog from '../../lib/Blog';
 import Service from '../../lib/Service';
 import ServiceResponse from '../../lib/ServiceResponse';
 import BlogsList from '../../utilities/blogs-list';
-import BlogMeta from '../../components/blog-meta';
+import BlogMetaHtmlHead from '../../components/blog-meta-html-head';
 
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
     return (
         <Layout headerImageSrc="/images/read_398_398.jpg" headerText={blogResponse.data.metadata.title}>
-            <BlogMeta
+            <BlogMetaHtmlHead
                 author={blogResponse.data.metadata.author}
                 description={blogResponse.data.metadata.description}
                 keywords={blogResponse.data.metadata.keywords}

@@ -31,7 +31,7 @@ export default class {
 
     public static async getRecommendedBlogs(requestedSlug: string): Promise<ServiceResponse<BlogMetadata[]>> {
         try {
-            const result = await axios.get(`/api/recommendedblogs/${encodeURI(requestedSlug)}`);
+            const result = await axios.get(`https://dhrutara-blogs-api-testing.azurewebsites.net/api/recommendedblogs/${encodeURI(requestedSlug)}`);
             return new ServiceResponse<BlogMetadata[]>(result.data, null);
         } catch (err) {
             return new ServiceResponse<BlogMetadata[]>(null, err);
