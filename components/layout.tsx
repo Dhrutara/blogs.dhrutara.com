@@ -4,6 +4,7 @@ import styles from '../styles/Layout.module.css';
 import utilStyles from '../styles/Utils.module.css';
 import Navigation from './navigation';
 import Footer from './footer';
+import BlogsSearch from '../components/blogs-search';
 
 export const siteTitle = 'DhruTara';
 
@@ -30,8 +31,12 @@ export default class Layout extends React.Component<Props> {
                 <meta name='theme-color' content='#317EFB' />
             </Head>
             <Navigation />
+            <div className={styles.container}>
+                <BlogsSearch />
+            </div>
             <header className={styles.header}>
                 <>
+
                     <figure className={styles.headerFigure}>
                         <img className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                             data-loading="lazy"

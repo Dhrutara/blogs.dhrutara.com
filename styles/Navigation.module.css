@@ -1,11 +1,11 @@
 .logoImage {
-  height: 2em;
+  height: 3em;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .logoImage {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 5s linear;
   }
 }
 
@@ -22,6 +22,7 @@
 
 .logo {
   display: flex;
+  direction: ltr;
 }
 
 .logoCaption {
@@ -32,12 +33,12 @@
 
 .root {
   background-color: #6bd2b3;
+  display: flex;
 }
 
 .menu {
   list-style-type: none;
   background-color: transparent;
-  direction: rtl;
 }
 
 .menu li a {

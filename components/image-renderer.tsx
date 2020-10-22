@@ -1,5 +1,4 @@
 
-
 export default function ImageRenderer(props) {
     const imageSrc = props.src;
     const altText = props.alt;

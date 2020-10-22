@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import BlogMetadata from '../lib/BlogMetadata';
 
-export default function BlogMeta(props: BlogMetadata) {
+export default function BlogMetaHtmlHead(props: BlogMetadata) {
     return (
         <Head>
             <title>{props.title}</title>
