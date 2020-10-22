@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+    padding-top: 1rem;
+}
+
+.root div{
+    padding: 0 0 0 15px
+}
+
+.root div a img{
+    width: 35px;
+    height: 35px;
+}

@@ -5,6 +5,7 @@ import utilStyles from '../styles/Utils.module.css';
 import Navigation from './navigation';
 import Footer from './footer';
 import BlogsSearch from '../components/blogs-search';
+import SocialLinks from '../components/social-links';
 
 export const siteTitle = 'DhruTara';
 
@@ -54,6 +55,7 @@ export default class Layout extends React.Component<Props> {
                             sizes="(max-width: 707px) 100vw, 707px" />
                         <figcaption className={utilStyles.colorInherit}>{this.props.headerText}</figcaption>
                     </figure>
+                    <SocialLinks />
                 </>
             </header>
 
