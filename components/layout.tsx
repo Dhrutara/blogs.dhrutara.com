@@ -5,6 +5,7 @@ import utilStyles from '../styles/Utils.module.css';
 import Navigation from './navigation';
 import Footer from './footer';
 import BlogsSearch from '../components/blogs-search';
+
 export const siteTitle = 'DhruTara';
 
 interface Props {
