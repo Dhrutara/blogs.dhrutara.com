@@ -5,7 +5,7 @@ export default function SocialLinks() {
         <div className={styles.root}>
             <div>
                 <a href="https://www.linkedin.com/in/rameshkanjinghat" target="_blank">
-                    <img src={'/icons/social/linkedin_1.png'} />
+                    <img src={'/icons/social/linkedIn_1.png'} />
                 </a>
             </div>
             <div className={styles.socialLink}>
