@@ -1,0 +1,9 @@
+{
+    "platformErrorOverrides": [
+        {
+            "errorType": "NotFound",
+            "serve": "/404",
+            "statusCode": 200
+        }
+    ]
+}

@@ -2,31 +2,97 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Dhrutara.Blogs.Api.Models;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Newtonsoft.Json;
+using System.Linq;
+using System.Buffers.Text;
+using System.Web;
 
 namespace Dhrutara.Blogs.Api
 {
-    public class Service
+    public class Service : IService
     {
-        public async Task<ServiceResponse<IEnumerable<BlogMetaData>>> GetLatestBlogGistsAsync()
+        private const string SEARCH_API_KEY_KEY = "SearchApiKey";
+        private const string SEARCH_SERVICE_NAME = "blogsdhrutara-search";
+        private const string SEARCH_INDEX_NAME = "blogsdhrutara-index";
+        public async Task<ServiceResponse<List<BlogMetaData>>> GetLatestBlogGistsAsync()
         {
-            List<BlogMetaData> latestBlogGists = new List<BlogMetaData>(3);
+            ServiceResponse<List<BlogMetaData>> response = new ServiceResponse<List<BlogMetaData>>();
+            SearchParameters searchParameters = new SearchParameters(orderBy: new string[] { "LastModifiedDate" }, top: 3);
+            SearchCredentials searchCredentials = new SearchCredentials(Environment.GetEnvironmentVariable(SEARCH_API_KEY_KEY));
 
-            latestBlogGists.Add(new BlogMetaData { Author = "Ramsh Kanjinghat", Description = "How to use dotnet-warp to further trim Dot.net Core Self-contained, Single File deployments.", Keywords = "Warp , DotNet Warp, Azure Devops, CI/CD pipeline, yaml, yml", LastModifiedDate = new DateTime(2020, 9, 10), PublishedDate = new DateTime(2020, 9, 10), Slug = "warp-it", Title = "Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline" });
-            latestBlogGists.Add(new BlogMetaData { Author = "Ramsh Kanjinghat", Description = "I try to explain how I have moved a serverless a React Web app to ASP.Net core backed react web app.", Keywords = "React web app, ASP.Net Core React App, React to .Net Core React APP", LastModifiedDate = new DateTime(2020, 10, 10), PublishedDate = new DateTime(2020, 10, 10), Slug = "react-app-to-asp-net-react-app", Title = "Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline" });
-            latestBlogGists.Add(new BlogMetaData { Author = "Ramsh Kanjinghat", Description = "I try to explain how I have moved a serverless a React Web app to ASP.Net core backed react web app.", Keywords = "React web app, ASP.Net Core React App, React to .Net Core React APP", LastModifiedDate = new DateTime(2020, 10, 10), PublishedDate = new DateTime(2020, 10, 10), Slug = "react-app-to-asp-net-react-app", Title = "Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline" });
+            try
+            {
+                using (SearchIndexClient client = new SearchIndexClient(SEARCH_SERVICE_NAME, SEARCH_INDEX_NAME, searchCredentials))
+                {
+                    List<BlogMetaData> metas = new List<BlogMetaData>();
+                    DocumentSearchResult<Document> searchResult = await client.Documents.SearchAsync("*", searchParameters: searchParameters);
+                    foreach (SearchResult<Document> item in searchResult.Results)
+                    {
+                        string serializedDoc = JsonConvert.SerializeObject(item.Document);
+                        BlogMetaData metaData = JsonConvert.DeserializeObject<BlogMetaData>(serializedDoc);
+                        metas.Add(metaData);
+                    }
 
-            return new ServiceResponse<IEnumerable<BlogMetaData>> { Data = latestBlogGists };
+                    response.Data = metas;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex;
+            }
+
+            return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<BlogMetaData>>> GetRecommendedGistsAsync(string[] keywords)
+        public async Task<ServiceResponse<List<BlogMetaData>>> GetRecommendedGistsAsync(string searchRequest)
         {
-            List<BlogMetaData> latestBlogGists = new List<BlogMetaData>(3);
+            if (string.IsNullOrWhiteSpace(searchRequest))
+            {
+                return await this.GetLatestBlogGistsAsync();
+            }
 
-            latestBlogGists.Add(new BlogMetaData { Author = "Ramsh Kanjinghat", Description = "How to use dotnet-warp to further trim Dot.net Core Self-contained, Single File deployments.", Keywords = "Warp , DotNet Warp, Azure Devops, CI/CD pipeline, yaml, yml", LastModifiedDate = new DateTime(2020, 9, 10), PublishedDate = new DateTime(2020, 9, 10), Slug = "warp-it", Title = "Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline" });
-            latestBlogGists.Add(new BlogMetaData { Author = "Ramsh Kanjinghat", Description = "I try to explain how I have moved a serverless a React Web app to ASP.Net core backed react web app.", Keywords = "React web app, ASP.Net Core React App, React to .Net Core React APP", LastModifiedDate = new DateTime(2020, 10, 10), PublishedDate = new DateTime(2020, 10, 10), Slug = "react-app-to-asp-net-react-app", Title = "Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline" });
-            latestBlogGists.Add(new BlogMetaData { Author = "Ramsh Kanjinghat", Description = "I try to explain how I have moved a serverless a React Web app to ASP.Net core backed react web app.", Keywords = "React web app, ASP.Net Core React App, React to .Net Core React APP", LastModifiedDate = new DateTime(2020, 10, 10), PublishedDate = new DateTime(2020, 10, 10), Slug = "react-app-to-asp-net-react-app", Title = "Warp (Dotnet Warp) with Azure Devops CI/CD Pipeline" });
+            string searchFullText = searchRequest
+                .Replace(",", " ")
+                .Split(' ')
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(x => HttpUtility.UrlEncode(x))
+                .Aggregate((l, r) => $"{l} +{r}");
 
-            return new ServiceResponse<IEnumerable<BlogMetaData>> { Data = latestBlogGists };
+            searchFullText =  "+" + searchFullText;
+
+            List<BlogMetaData> metas = new List<BlogMetaData>();
+            ServiceResponse<List<BlogMetaData>> response = new ServiceResponse<List<BlogMetaData>>();
+
+            SearchParameters searchParameters = new SearchParameters(orderBy: new string[] { "LastModifiedDate" }, queryType: QueryType.Full, searchMode: SearchMode.Any);
+            SearchCredentials searchCredentials = new SearchCredentials(Environment.GetEnvironmentVariable(SEARCH_API_KEY_KEY));
+
+            try
+            {
+                using (SearchIndexClient client = new SearchIndexClient(SEARCH_SERVICE_NAME, SEARCH_INDEX_NAME, searchCredentials))
+                {
+                    DocumentSearchResult<Document> searchResult = await client.Documents.SearchAsync(searchFullText, searchParameters: searchParameters);
+                    foreach (SearchResult<Document> item in searchResult.Results)
+                    {
+                        string serializedDoc = JsonConvert.SerializeObject(item.Document);
+                        BlogMetaData metaData = JsonConvert.DeserializeObject<BlogMetaData>(serializedDoc);
+                        metas.Add(metaData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var x = ex;
+            }
+
+            if (metas.Any())
+            {
+                response.Data = metas;
+                return response;
+            }
+
+            return await this.GetLatestBlogGistsAsync();
         }
     }
 }

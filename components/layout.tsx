@@ -4,6 +4,8 @@ import styles from '../styles/Layout.module.css';
 import utilStyles from '../styles/Utils.module.css';
 import Navigation from './navigation';
 import Footer from './footer';
+import BlogsSearch from '../components/blogs-search';
+import SocialLinks from '../components/social-links';
 
 export const siteTitle = 'DhruTara';
 
@@ -28,12 +30,15 @@ export default class Layout extends React.Component<Props> {
                 <link href='/icons/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' />
                 <link rel='apple-touch-icon' href='icons/apple-icon.png'></link>
                 <meta name='theme-color' content='#317EFB' />
-                <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
             </Head>
             <Navigation />
+            <div className={styles.container}>
+                <BlogsSearch />
+            </div>
             <header className={styles.header}>
                 <>
-                    <figure className="wp-block-image size-large is-resized">
+
+                    <figure className={styles.headerFigure}>
                         <img className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                             data-loading="lazy"
                             data-orig-file={this.props.headerImageSrc}
@@ -50,6 +55,7 @@ export default class Layout extends React.Component<Props> {
                             sizes="(max-width: 707px) 100vw, 707px" />
                         <figcaption className={utilStyles.colorInherit}>{this.props.headerText}</figcaption>
                     </figure>
+                    <SocialLinks />
                 </>
             </header>
 

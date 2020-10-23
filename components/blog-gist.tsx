@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function Layout(props) {
+export default function BlogGist(props) {
 
 
     const classes = useStyles();
