@@ -7,7 +7,7 @@ export default function About() {
     return (
         <Layout headerImageSrc="/images/profile_792_820.jpg" headerText="Ramesh Kanjinghat">
             <Head>
-                <title>{siteTitle}</title>
+            <meta property="og:url" content={`https://blogs.dhrutara.com/about`} />
             </Head>
 
             <section className={utilStyles.headingLg}>
