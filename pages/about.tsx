@@ -18,7 +18,7 @@ export default function About() {
                 I can write & speak in Malayalam, English, Hindi, Telugu and C#, Javascript, jsx, sql, html. I use Azure & Azure Devops when I have to take to clouds. I am agile when it comes to safeguarding information; distributed, centralized, clustered and tabularized.
             </section>
             <section className={utilStyles.headingSm}>
-                Dotnet (Framework & Core), ASP.Net (web forms, MVC & core), Git, npm, Software architecture & design, vendor management and leading teams.
+                Dotnet (Framework & Core), C#, javascript, ASP.Net (web forms, MVC & core), React, Azure, Azure Devops, sql, html Git, npm, Software architecture & design, vendor management and leading teams.
             </section>
         </Layout>
     )
