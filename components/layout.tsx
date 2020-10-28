@@ -30,6 +30,13 @@ export default class Layout extends React.Component<Props> {
                 <link href='/icons/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' />
                 <link rel='apple-touch-icon' href='icons/apple-icon.png'></link>
                 <meta name='theme-color' content='#317EFB' />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={siteTitle} />
+                <meta property="og:description" content="Trying to share knowledge on dotnet core, reacts js, Azure, C#, ASP.Net" />
+                <meta property="og:url" content={`https://blogs.dhrutara.com/`} />
+                <meta property="og:site_name" content="Blogs.Dhrutara" />
+                <meta property="article:publisher" content="https://blogs.dhrutara.com/about" />
             </Head>
             <Navigation />
             <div className={styles.container}>
