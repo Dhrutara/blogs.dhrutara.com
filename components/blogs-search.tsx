@@ -13,7 +13,7 @@ export default function BlogsSearch() {
   const [blogs, setBlogs] = useState([]);
   const [searchText, setSearchText] = useState('');
 
-  const debouncedSearchText = useDebounce(searchText, 250);
+  const debouncedSearchText = useDebounce(searchText, 150);
 
   useEffect(
     () => {
