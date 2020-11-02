@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>https://blogs.dhrutara.com/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://blogs.dhrutara.com/about/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://blogs.dhrutara.com/blogs/dotnet-core-deployment-models/</loc>
+    <lastmod>2020-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://blogs.dhrutara.com/blogs/react-app-azure-devops-pipeline/</loc>
+    <lastmod>2020-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://blogs.dhrutara.com/blogs/react-app-to-asp-net-react-app/</loc>
+    <lastmod>2020-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://blogs.dhrutara.com/blogs/warp-it/</loc>
+    <lastmod>2020-10-23</lastmod>
+  </url>
+</urlset>
