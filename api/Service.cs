@@ -19,7 +19,7 @@ namespace Dhrutara.Blogs.Api
         public async Task<ServiceResponse<List<BlogMetaData>>> GetLatestBlogGistsAsync()
         {
             ServiceResponse<List<BlogMetaData>> response = new ServiceResponse<List<BlogMetaData>>();
-            SearchParameters searchParameters = new SearchParameters(orderBy: new string[] { "LastModifiedDate" }, top: 3);
+            SearchParameters searchParameters = new SearchParameters(orderBy: new string[] { "LastModifiedDate desc" }, top: 3);
             SearchCredentials searchCredentials = new SearchCredentials(Environment.GetEnvironmentVariable(SEARCH_API_KEY_KEY));
 
             try
