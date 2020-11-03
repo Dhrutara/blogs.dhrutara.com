@@ -20,7 +20,7 @@ export default class {
     public static async getLatestBlogs(): Promise<ServiceResponse<BlogMetadata[]>> {
         let response = new ServiceResponse<BlogMetadata[]>();
         try {
-            const result = await axios.get('https://jolly-ground-03ef6dc0f.azurestaticapps.net/api/latestblogs');
+            const result = await axios.get('https://polite-cliff-0c802650f.azurestaticapps.net/api/latestblogs');
             response.data = result.data;
         } catch (err) {
             response.error = err;
