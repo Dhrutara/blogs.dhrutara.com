@@ -1,0 +1,6 @@
+sitemap: https://blogs.dhrutara.com/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow: /api/*
