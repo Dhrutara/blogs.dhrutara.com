@@ -14,6 +14,7 @@ export default function Home({ blogGists }: { blogGists?: ServiceResponse<BlogMe
     <div>
       <Layout headerImageSrc="/images/hey_398_398.jpg" headerText="Would you like to check my latest blogs?">
         <Head>
+          <meta property="og:url" content={`https://blogs.dhrutara.com`} />
           <title>{siteTitle}</title>
         </Head>
         <div>
