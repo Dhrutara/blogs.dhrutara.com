@@ -18,8 +18,9 @@ export default function About() {
             <section className={utilStyles.headingMd}>
                 I can write & speak in Malayalam, English, Hindi, Telugu and C#, Javascript, jsx, sql, html. I use Azure & Azure Devops when I have to take to clouds. I am agile when I sprint.
             </section>
+            <p></p>
             <section className={utilStyles.headingSm}>
-                Dotnet (Framework & Core), C#, javascript, ASP.Net (web forms, MVC & core), React, Azure, Azure Devops, sql, html Git, npm, Software architecture & design, vendor management and leading teams.
+                Dotnet (Framework & Core), C#, javascript, ASP.Net (web forms, MVC & core), React, Azure, Azure Devops, Git, sql, html, npm, Software architecture & design, vendor management and leading teams.
             </section>
         </Layout>
     )
