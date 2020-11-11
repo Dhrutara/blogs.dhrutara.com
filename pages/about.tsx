@@ -7,7 +7,8 @@ export default function About() {
     return (
         <Layout headerImageSrc="/images/profile_792_820.jpg" headerText="Ramesh Kanjinghat">
             <Head>
-            <meta property="og:url" content={`https://blogs.dhrutara.com/about`} />
+                <meta property="og:url" content={`https://blogs.dhrutara.com/about`} />
+                <title>About Ramesh Kanjinghat</title>
             </Head>
 
             <section className={utilStyles.headingLg}>
@@ -15,10 +16,11 @@ export default function About() {
                 I live in Ohio, USA with my wife and 2 adorable kids.
             </section>
             <section className={utilStyles.headingMd}>
-                I can write & speak in Malayalam, English, Hindi, Telugu and C#, Javascript, jsx, sql, html. I use Azure & Azure Devops when I have to take to clouds. I am agile when it comes to safeguarding information; distributed, centralized, clustered and tabularized.
+                I can write & speak in Malayalam, English, Hindi, Telugu and C#, Javascript, jsx, sql, html. I use Azure & Azure Devops when I have to take to clouds. I am agile when I sprint.
             </section>
+            <p></p>
             <section className={utilStyles.headingSm}>
-                Dotnet (Framework & Core), C#, javascript, ASP.Net (web forms, MVC & core), React, Azure, Azure Devops, sql, html Git, npm, Software architecture & design, vendor management and leading teams.
+                Dotnet (Framework & Core), C#, javascript, ASP.Net (web forms, MVC & core), React, Azure, Azure Devops, Git, sql, html, npm, Software architecture & design, vendor management and leading teams.
             </section>
         </Layout>
     )

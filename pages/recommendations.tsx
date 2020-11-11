@@ -24,7 +24,7 @@ export default function Recommendations({ blogGists }: { blogGists?: ServiceResp
     return (
         <Layout headerImageSrc="/images/emabarassed_398_398.jpg" headerText="Unfortunately I couldn't get what you have asked for. May I recommend some blogs you might be interested in?">
             <Head>
-                <title>DhruTara</title>
+                <title>DhruTara Recommendations</title>
             </Head>
             <div>
                 {blogGists && blogGists.data && Array.isArray(blogGists.data) ?
