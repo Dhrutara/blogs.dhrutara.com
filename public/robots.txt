@@ -4,3 +4,7 @@ User-agent: *
 Allow: /*
 
 Disallow: /api/*
+Disallow: /src/*
+Disallow: /blogs/[slug]
+Disallow: /_error*
+Disallow: /*?
