@@ -6,5 +6,6 @@ export default class BlogsList {
         , "react-app-azure-devops-pipeline"
         , "react-markdown-custom-renderers"
         , "aspnet-react-file-upload-with-additional-form-data"
+        ,"efcore5-migrations-with-inheritance"
     ];
 }
