@@ -23,7 +23,7 @@ export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<
                 slug={blogResponse.data.metadata.slug}
                 title={blogResponse.data.metadata.title} />
             <div>
-                <ReactMarkdown source={blogResponse.data.content} escapeHtml={false} renderers={{ "code": CodeBlockRenderer, "image": ImageRenderer }} />
+                <ReactMarkdown source={blogResponse.data.content} escapeHtml={false}  renderers={{"paragraph":'div',  "code": CodeBlockRenderer, "image": ImageRenderer }} />
             </div>
         </Layout>
     );

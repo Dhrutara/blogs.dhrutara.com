@@ -14,8 +14,14 @@ export default function Home({ blogGists }: { blogGists?: ServiceResponse<BlogMe
     <div>
       <Layout headerImageSrc="/images/hey_398_398.jpg" headerText="Would you like to check my latest blogs?">
         <Head>
-          <meta property="og:url" content={`https://blogs.dhrutara.com`} />
           <title>{siteTitle}</title>
+          <meta name="description" content="Trying to share knowledge on dotnet core, reacts js, Azure, C#, ASP.Net" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={siteTitle} />
+          <meta property="og:description" content="Trying to share knowledge on dotnet core, reacts js, Azure, C#, ASP.Net" />
+          <meta property="og:url" content={`https://blogs.dhrutara.com/`} />
+          <meta property="og:site_name" content="Blogs.Dhrutara" />
         </Head>
         <div>
           {blogGists && blogGists.data && Array.isArray(blogGists.data) ?
