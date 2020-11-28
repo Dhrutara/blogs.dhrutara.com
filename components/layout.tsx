@@ -49,7 +49,7 @@ export default class Layout extends React.Component<Props> {
                             alt={this.props.headerText}
                             srcSet={this.props.headerImageSrc + "?w=1024 1024w, " + this.props.headerImageSrc + "?w=705 705w, " + this.props.headerImageSrc + "?w=150 150w, " + this.props.headerImageSrc + "?w=300 300w, " + this.props.headerImageSrc + "?w=768 768w, " + this.props.headerImageSrc + "?1248w"}
                             sizes="(max-width: 707px) 100vw, 707px" />
-                        <figcaption><h1 style={{"fontSize":"large","color":"#ed143d"}}>{this.props.headerText}</h1></figcaption>
+                        <figcaption><h1 style={{"fontSize":"large","color":"#00008b"}}>{this.props.headerText}</h1></figcaption>
                     </figure>
                     <SocialLinks />
                 </>
