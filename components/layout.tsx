@@ -19,24 +19,14 @@ export default class Layout extends React.Component<Props> {
     render() {
         return <div>
             <Head>
-                <link rel='icon' href="/favicon.ico" />
-                <meta name="description" content="Trying to share knowledge on dotnet core, reacts js, Azure, C#, ASP.Net" />
                 <meta charSet='utf-8' />
                 <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
                 <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5' />
-                <meta name="og:title" content={siteTitle} />
                 <link rel='manifest' href='/manifest.json' />
                 <link href='/icons/favicon-16x16.png' rel='icon' type='image/png' sizes='16x16' />
                 <link href='/icons/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' />
                 <link rel='apple-touch-icon' href='icons/apple-icon.png'></link>
                 <meta name='theme-color' content='#317EFB' />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="article" />
-                <meta property="og:title" content={siteTitle} />
-                <meta property="og:description" content="Trying to share knowledge on dotnet core, reacts js, Azure, C#, ASP.Net" />
-                <meta property="og:url" content={`https://blogs.dhrutara.com/`} />
-                <meta property="og:site_name" content="Blogs.Dhrutara" />
-                <meta property="article:publisher" content="https://blogs.dhrutara.com/about" />
             </Head>
             <Navigation />
             <div className={styles.container}>
@@ -44,7 +34,6 @@ export default class Layout extends React.Component<Props> {
             </div>
             <header className={styles.header}>
                 <>
-
                     <figure className={styles.headerFigure}>
                         <img className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                             data-loading="lazy"
@@ -60,7 +49,7 @@ export default class Layout extends React.Component<Props> {
                             alt={this.props.headerText}
                             srcSet={this.props.headerImageSrc + "?w=1024 1024w, " + this.props.headerImageSrc + "?w=705 705w, " + this.props.headerImageSrc + "?w=150 150w, " + this.props.headerImageSrc + "?w=300 300w, " + this.props.headerImageSrc + "?w=768 768w, " + this.props.headerImageSrc + "?1248w"}
                             sizes="(max-width: 707px) 100vw, 707px" />
-                        <figcaption style={{"color":"#000000"}}>{this.props.headerText}</figcaption>
+                        <figcaption style={{ "color": "#000000" }}>{this.props.headerText}</figcaption>
                     </figure>
                     <SocialLinks />
                 </>
