@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
+import BlogMetaHtmlHead from '../../components/blog-meta-html-head';
 import CodeBlockRenderer from '../../components/code-block-renderer';
 import ImageRenderer from '../../components/image-renderer';
 import Layout from '../../components/layout';
+import LinkRenderer from '../../components/link-renderer';
 import Blog from '../../lib/Blog';
 import Service from '../../lib/Service';
 import ServiceResponse from '../../lib/ServiceResponse';
 import BlogsList from '../../utilities/blogs-list';
-import BlogMetaHtmlHead from '../../components/blog-meta-html-head';
 
 export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<Blog> }) {
 
@@ -23,7 +23,7 @@ export default function Blogs({ blogResponse }: { blogResponse: ServiceResponse<
                 slug={blogResponse.data.metadata.slug}
                 title={blogResponse.data.metadata.title} />
             <div>
-                <ReactMarkdown source={blogResponse.data.content} escapeHtml={false}  renderers={{"paragraph":'div',  "code": CodeBlockRenderer, "image": ImageRenderer }} />
+                <ReactMarkdown source={blogResponse.data.content} escapeHtml={false}  renderers={{"paragraph":'div',  "code": CodeBlockRenderer, "image": ImageRenderer, "link": LinkRenderer }} />
             </div>
         </Layout>
     );
