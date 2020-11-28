@@ -8,13 +8,13 @@ export default function Navigation() {
 
     return (
         <div className={styles.root}>
-            <div style={{"marginLeft":"-2rem"}}>
+            <div>
                 <figure className={styles.logo}>
                     <img src={"/logo.svg"} alt="DhruTara logo" className={styles.logoImage} />
                     <figcaption className={styles.logoCaption}>DhruTara</figcaption>
                 </figure>
             </div>
-            <div style={{"width":"100%", "marginRight":"-2.7rem", "direction":"rtl"}}>
+            <div style={{"width":"100%", "direction":"rtl"}}>
                 <ul className={styles.menu}>
                     {router.pathname !== '/' &&
                         <li>
