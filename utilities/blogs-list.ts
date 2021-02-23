@@ -7,6 +7,6 @@ export default class BlogsList {
         , "react-markdown-custom-renderers"
         , "aspnet-react-file-upload-with-additional-form-data"
         ,"efcore5-migrations-with-inheritance"
-        ,"how_fix_edge_asking_credentials_in_loop_for_windows_authenticated_application"
+        ,"how-fix-edge-asking-credentials-in-loop-for-windows-authenticated-applications"
     ];
 }
